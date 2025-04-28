@@ -145,7 +145,19 @@ for i in range(X.shape[0]):
                     
 # Stack them to form an RGB image
 rgb_image = np.stack((resultR, resultG, resultB), axis=-1)
-img = Image.fromarray(rgb_image)
+
+# Step 1: Create a dummy numpy array
+arr_uint8 = rgb_image
+# Step 2: Create a blank PIL Image manually
+img = Image.new('RGB', (arr_uint8.shape[1], arr_uint8.shape[0]))
+# Step 3: Load pixel data manually
+pixels = img.load()
+for y in range(arr_uint8.shape[0]):
+    for x in range(arr_uint8.shape[1]):
+        # Set each pixel manually
+        r, g, b = arr_uint8[y, x]
+        pixels[x, y] = (int(r), int(g), int(b))
+
 # Show the image
 img.save("output.png")
 st.image("output.png", caption=f"Generated Image for '{word}'")
