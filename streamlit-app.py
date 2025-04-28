@@ -146,12 +146,8 @@ for i in range(X.shape[0]):
                     
 # Stack them to form an RGB image
 rgb_image = np.stack((resultR, resultG, resultB), axis=-1)
-img = rgb_image
+img = Image.fromarray(rgb_image)
 # Show the image
-
-plt.imshow(rgb_image)
-plt.title(word)
-plt.axis('off')
-plt.savefig('output.png', bbox_inches='tight', pad_inches=0)
+img.save("output.png")
 st.image("output.png", caption=f"Generated Image for '{word}'")
 
