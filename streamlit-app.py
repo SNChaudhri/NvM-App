@@ -1,8 +1,7 @@
 # app.py
 import streamlit as st
 from PIL import Image, ImageDraw, ImageFont
-import numpy as np 
-import matplotlib.pyplot as plt
+import numpy as np
 
 st.title("Word to Image Generator")
 # Step 1: Read URL query parameters
