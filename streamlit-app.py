@@ -3,7 +3,7 @@ import streamlit as st
 from PIL import Image, ImageDraw, ImageFont
 import numpy as np
 
-st.title("Word to Image Generator")
+st.title("TypeYourNameWithoutSpace")
 # Step 1: Read URL query parameters
 query_params = st.query_params
 word_from_url = query_params.get('word', [''])[0]  # Default to empty string if not provided
